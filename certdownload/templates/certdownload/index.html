@@ -1,0 +1,214 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:600,700,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'certdownload/css/bootstrap.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'certdownload/css/bootstrap.css' %}">
+  <link rel="icon"  href="{% static 'certdownload/img/edu_logo_black.png' %}" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="{% static 'certdownload/css/index.css' %}">
+
+  <title>Edubridge Certificates </title>
+
+</head>
+
+<body>
+<div class = "container-fluid main-view">
+    <div class = "row">
+        <div class = "col">
+        <nav class="navbar navbar-expand-xl navbar-expand-lg navbar-expand-md">
+          <!-- Brand -->
+          <a class="navbar-brand" href="#"><img src = "{% static 'certdownload/img/edu_logo_black.png' %}" class = "img img-fluid" height="30px" width="100px" style="position:relative; left:7%;"></a>
+        
+          <!-- Toggler/collapsibe Button -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+            <span style = "color:black; font-size:25px;">&#9776;</span>
+          </button>
+        
+          <!-- Navbar links -->
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Why EduBridge?</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Courses</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#footer">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        </div>
+        </div>
+        <div class = "row section-1">
+                  
+            <div class = "col-xl-7 col-lg-7 col-md-7 col-12 section-1a">
+                  {% if error_message %}
+                  <div class = "warning text-danger" style = "font-weight:700;">
+                  <p><i class="fa fa-exclamation-triangle" style="font-size:12px;"></i> Couldn't get your certificate. Might be as a result of any of the following;</p>
+                 <ul style="font-size:12px;">
+                  <li>Incorrect Email</li>
+                  <li>Incomplete Payment</li>
+                  <li>You didn't complete requirements for earning a Certificate</li>
+                  </ul>
+                  </div>
+                {% endif %}
+                <h1 class = "text-heading">
+                    <span class = "sub-head-2">Congratulations!!!</span><br> for
+                    completing <span class = "sub-head-1">the
+                    Graduate Program.</span><br>
+                </h1>
+
+                <form action ="{% url "cert_download:download" %}" method="post">
+                {% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-10 col-12"><div class="form-group">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text email-label shadow">Your email</span>
+                                  </div>
+                          <input required type="email" class="form-control" placeholder="BabatundeOlaide@gmail.com" name="email" name="email" id="email" 
+                          style = "border-radius:0px 30px 30px 0px; border:1px solid #05BB66;">
+                          
+                      </div>
+                      </div>
+                        </div>
+                          <div class="col-lg-10 col-12"><div class="form-group">
+                              <input type="submit" value="Get Your Certificate" class="shadow btn submit-button form-control" id="get_certificate">
+                              </div>
+                              <a style="text-align:center;" href="#footer">Contact us</a> - If any issue persists.
+                          </div>
+                      </div>
+                </form>
+            </div>
+            <div class = "col-lg-5" id = "pic">
+                <img src = "{% static 'certdownload/img/cert_n_suit.svg' %}" class = "img img-fluid" id="toFade" width="477px" height="341px">
+            </div>
+        </div>
+    </div>
+ <footer class=" bg-light pt-5 text-dark" id="footer">
+
+    <div class="container">
+      <div class="row">
+
+
+          <div class="col-lg-3">
+            <h5 class="mb-4"><a href="#"><img src="{% static 'certdownload/img/edu_logo_black.png' %}" alt="" width="50%"></a></h5>
+           
+            <ul class="list-unstyled text-small">
+              <li>18 Bakare Dawodu Street,</li>
+              <li>Ifako Gbagada, Lagos.</li>
+              <li><a class="text-dark" href="#">hello@edubridgeacademy.com</a></li>
+              <li><a class="text-dark" href="tel: +234 802 809 8270">+234 815 121 3474</a></li>
+              <li><a class="text-dark" href="tel: +234 802 809 8270">+234 802 809 8270</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-9">
+             <div class="row offset-1">
+                <div class="col-lg-2">
+                    <h5 class="text-success mb-4">Students</h5>
+                    <ul class="list-unstyled text-small">
+                      <li><a class="text-dark" href="#">Who's hiring</a></li>
+                      <li><a class="text-dark" href="#">Career tips</a></li>
+                      <li><a class="text-dark" href="#">Companies</a></li>
+                      <li><a class="text-dark" href="#">Job roles</a></li>
+                      
+                    </ul>
+                  </div>
+                  <div class="col-lg-2">
+                    <h5 class="text-success mb-4">Employers</h5>
+                    <ul class="list-unstyled text-small">
+                      <li><a class="text-dark" href="#">Customers</a></li>
+                      <li><a class="text-dark" href="#">Resources</a></li>
+                      <li><a class="text-dark" href="#">Blog</a></li>
+                      
+                    </ul>
+                  </div>
+                  <div class="col-lg-3">
+                    <h5 class="text-success mb-4">Coures</h5>
+                    <ul class="list-unstyled text-small">
+                      <li><a class="text-dark" href="#">Employer program</a></li>
+                      <li><a class="text-dark" href="http://bit.ly/edubridgeadmissions">Graduate program</a></li>
+                      <li><a class="text-dark" href="http://bit.ly/UndergraduateProgram">Undegraduate program</a></li>
+                      <li><a class="text-dark" href="#">Online program</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-lg-2">
+                    <h5 class="text-success mb-4">Universities</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-dark" href="#">Ambassadors</a></li>
+                        <li><a class="text-dark" href="#">Recruitment challenge</a></li>
+                        <li><a class="text-dark" href="#">Resources</a></li>
+                        <li><a class="text-dark" href="#">Blog</a></li>
+
+                      </ul>
+                  </div>
+                  <div class="col-lg-3 pr-0">
+                    <h5 class="text-success mb-4">About Us</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-dark" href="#">Company</a></li>
+                        <li><a class="text-dark" href="#">Join us</a></li>
+                        <li><a class="text-dark" href="#">Press</a></li>
+                        <li><a class="text-dark" href="#">Blog</a></li>
+                        <li><a class="text-dark" href="#">Brand guidelines</a></li>
+                      </ul>
+                  </div>
+             </div>
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="container">
+      <hr>
+    </div>
+
+
+    <section>
+      <div class="container">
+        <div class="row" style="margin-top: 50px;">
+
+          <div class="col-lg-8">
+            <p>
+              Copyright: EduBridge 2019. All rights reserved Privacy & Terms
+            </p>
+          </div>
+          <div class="col-lg-2"></div>
+          <div class="col-lg-2">
+            <a href="http://facebook.com/edubridgeacademy" target="blank"><i class="fab fa-facebook text-dark"></i></a>&nbsp;
+            <a href="http://twitter.com/edubridge_ng" target="blank"><i class="fab  fa-twitter text-dark"></i></a>&nbsp;
+            <a href="http://instagram.com/edubridgeacademy" target="blank"><i class="fab fa-instagram text-dark"></i></a>&nbsp;
+            <a href="https://ng.linkedin.com/in/edubridge-academy-89994297" target="blank"><i
+                class="fab fa-linkedin text-dark"></i></a>
+
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+  </footer>
+  <script src="{% static 'certdownload/js/jquery.js' %}"></script>
+  <script src="{% static 'certdownload/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'certdownload/js/popper.min.js' %}"></script>
+</body>
+<script>!function (e, t, a) { var c = e.head || e.getElementsByTagName("head")[0], n = e.createElement("script"); n.async = !0, n.defer = !0, n.type = "text/javascript", n.src = t + "/static/js/chat_widget.js?config=" + JSON.stringify(a), c.appendChild(n) }(document, "https://app.engati.com", { bot_key: "7cc8ca52ec3e4930", welcome_msg: true, branding_key: "default", server: "https://app.engati.com", e: "p" });</script>
+
+</html>

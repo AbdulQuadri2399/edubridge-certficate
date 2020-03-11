@@ -1,0 +1,1 @@
+web: gunicorn educert.wsgi --log-file -

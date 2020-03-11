@@ -1,0 +1,130 @@
+body {
+    font-family: 'M PLUS 1p', sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+.main-view {
+    background-image: url('../img/Ellipse_1.png'), url('../img/Ellipse_2.png');
+    background-position: top left, bottom right;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 550px 550px, 350px 250px;
+    height:100vh;
+
+}
+@keyframes changesize {
+    from {
+        background-size: 550px 550px, 350px 250px;
+    }
+  
+    to {
+        background-size: 450px 450px, 450px 350px;
+    }
+  }
+  
+.main-view {
+    animation-duration: 3s;
+    animation-name: changesize;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  @keyframes shakesubbtn {
+    from {
+        transform: rotate(0deg)
+    }
+  
+    to {
+        transform: rotate(1deg)
+    }
+  }
+  
+.submit-button {
+    animation-duration: 0.3s;
+    animation-name: shakesubbtn;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 20s;
+  }
+.section-1{
+    margin-top:5%;
+}
+.section-1a{
+    padding-left:10%;
+}
+#myNavbar ul a {
+    color: black;
+    font-weight: 600;
+    padding: 13px;
+    font-size: 15px;
+}
+
+.text-heading {
+    margin-top: 3%;
+    line-height: 80px;
+    font-weight: 900;
+    font-size: 3.5em;
+}
+
+.sub-head-1 {
+    color: #FF9D00;
+}
+
+.sub-head-2 {
+    color: #05BB66;
+}
+.email-label{
+    border-radius:30px 0px 0px 30px;
+    border:1px solid #05BB66;
+    background-color:#05BB66;
+    color:black;
+    font-weight:700;
+    font-size:14px;
+    text-align:center;
+}
+.submit-button{
+    border-radius:20px;
+    background-color:#FF9D00;
+    text-align:center;
+    text-decoration:underline;
+    color:black;
+    font-weight:700;
+    transition: background-color 1s ease-out;
+}
+.submit-button:hover{
+    background-color:rgb(201, 129, 14);
+}
+
+.navbar-nav a:hover{
+    padding-bottom:5px;
+    border-bottom:2px solid #FF9D00;
+}
+.warning{
+    padding-top:2%;
+    padding-left:3%;
+    border-left:3px solid rgb(170, 51, 3);
+    background-color: rgb(250, 241, 241);
+}
+.section-1 img{
+    display:block;
+}
+#pic{
+    padding-top:3%;
+}
+
+@media screen and (max-width:780px){
+    .text-heading {
+        margin-top: 5%;
+        line-height: 60px;
+        font-weight: 900;
+        font-size: 2.0em;
+    }
+    #pic{
+        display:none;
+    }
+    .section-1{
+        margin-top:50px;
+    }
+}
+#footer a:hover {
+    color: #54ee54 !important;
+  }
